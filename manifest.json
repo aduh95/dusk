@@ -2,11 +2,14 @@
   "name": "@aduh95/dusk",
   "version": "0.0.1",
   "manifest_version": 2,
-  "permissions": ["activeTab"],
+  "permissions": ["activeTab", "storage"],
   "content_scripts": [
     {
       "matches": ["https://outlook.live.com/mail/"],
       "js": ["outlook.js"]
     }
-  ]
+  ],
+  "options_ui": {
+    "page": "options.html"
+  }
 }
