@@ -1,11 +1,12 @@
 "use strict";
 {
+  const m = matchMedia("(prefers-color-scheme:dark)");
+
   const returnAuto = () => m.matches.toString();
   const returnFalse = () => "false";
   const returnTrue = () => "true";
   let isDark;
 
-  const m = matchMedia("(prefers-color-scheme:dark)");
   async function w(s) {
     let e = document.querySelector(s);
     while (!e) {
@@ -25,12 +26,12 @@
     c && s.click();
   }
   function c(options) {
-    if (options?.theme !== "auto") {
-      m.removeEventListener("change", u);
-      isDark = options?.theme === "dark" ? returnTrue : returnFalse;
-    } else {
+    if (options?.theme == null || options.theme === "auto") {
       m.addEventListener("change", u);
       isDark = returnAuto;
+    } else {
+      m.removeEventListener("change", u);
+      isDark = options.theme === "dark" ? returnTrue : returnFalse;
     }
     u();
   }
