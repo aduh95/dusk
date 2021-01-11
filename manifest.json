@@ -5,7 +5,11 @@
   "permissions": ["activeTab", "storage"],
   "content_scripts": [
     {
-      "matches": ["https://outlook.live.com/mail/"],
+      "matches": [
+        "https://outlook.live.com/*",
+        "https://outlook.office365.com/*"
+      ],
+      "run_at": "document_end",
       "js": ["outlook.js"]
     }
   ],
