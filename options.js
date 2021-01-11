@@ -1,5 +1,4 @@
 function onChange() {
-  console.log(this.value);
   chrome.storage.sync.set({ theme: this.value }, Function.prototype);
 }
 
@@ -10,5 +9,14 @@ chrome.storage.sync.get("theme", (val) => {
   (
     document.querySelector(`input[value="${val?.theme}"]`) ??
     document.querySelector(`input[value="auto"]`)
+  ).checked = true;
+});
+
+chrome.storage.onChanged.addListener(({ theme }) => {
+  (
+    document.querySelector(`input[value="${theme.oldValue}"]`) ?? {}
+  ).checked = false;
+  (
+    document.querySelector(`input[value="${theme.newValue}"]`) ?? {}
   ).checked = true;
 });
