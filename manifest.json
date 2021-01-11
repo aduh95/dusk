@@ -5,6 +5,11 @@
   "permissions": ["activeTab", "storage"],
   "content_scripts": [
     {
+      "matches": ["https://www.facebook.com/messages/*"],
+      "run_at": "document_end",
+      "js": ["messenger.js"]
+    },
+    {
       "matches": [
         "https://outlook.live.com/*",
         "https://outlook.office365.com/*"
