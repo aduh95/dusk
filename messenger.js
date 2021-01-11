@@ -16,11 +16,9 @@
     return e;
   }
   async function u() {
-    console.log("u");
     if (
       document.documentElement.classList.contains("__fb-dark-mode") !== isDark()
     ) {
-      console.log("change");
       const banner = await w('div[role="banner"]');
       const menuOpener =
         banner.lastElementChild.firstElementChild.firstElementChild
