@@ -20,7 +20,7 @@
       "matches": [
         "https://outlook.live.com/*",
         "https://outlook.office365.com/*",
-        "https://outlook.office.com//*"
+        "https://outlook.office.com/*"
       ],
       "run_at": "document_end",
       "js": ["outlook.js"]
