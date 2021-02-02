@@ -10,7 +10,7 @@
     }
 
     if (typeof data.theme === "string") data.theme = { newValue: data.theme };
-    const isDark = Boolean(data.toggle) ^ (data.theme.newValue === "dark");
+    const isDark = Boolean(data.toggle) ^ (data.theme?.newValue === "dark");
     const theme = isDark ? "dark" : "light";
     chrome.browserAction.setIcon({ path: `${theme}-icon.png` });
 
